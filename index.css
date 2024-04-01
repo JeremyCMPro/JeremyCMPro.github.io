@@ -12,7 +12,7 @@
 
 body {
     background-color: var(--dark-background-color);
-    transition: background .5s ease;
+    transition: background-color .5s ease;
 }
 
 .light-mode {
