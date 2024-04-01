@@ -1,0 +1,92 @@
+* {
+    box-sizing: inherit;
+    border: 0;
+    padding: 0;
+    margin: 0;
+}
+
+:root {
+    --light-background-color: #f5f5f5;
+    --dark-background-color: #0c0229;
+}
+
+body {
+    background-color: var(--dark-background-color);
+    transition: background .5s ease;
+}
+
+.light-mode {
+    background-color: var(--light-background-color) !important;
+    color: #000 !important;
+}
+
+.switch-light {
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    width: 6rem;
+    height: 2.5rem;
+    background-color: transparent;
+    border-radius: 20px;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    outline: #f5f5f5 1px solid;
+    color: #fff;
+}
+
+body.light-mode .switch-light {
+    background-color: #000;
+    outline: #000 1px solid;
+}
+
+.switch-light:hover {
+    cursor: pointer;
+}
+
+.switch_icon {
+    height: 100%;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.light_icon {
+    text-shadow: 0 0 10px #eeb703, 0 0 20px #eeb703, 0 0 30px #eeb703, 0 0 40px #eeb703, 0 0 50px #eeb703, 0 0 60px #eeb703, 0 0 70px #eeb703;
+}
+
+.dark_icon {
+    text-shadow: none !important;
+}
+
+.circle_switch {
+    width: 30%;
+    height: 70%;
+    left: 10%;
+    position: absolute;
+    background-color: #fff;
+    border-radius: 50%;
+    transition: left .5s ease;
+}
+
+.circle_switch.light {
+    left: 60%;
+}
+
+.circle_switch.light ~ .light_icon  {
+    text-shadow: none;
+}
+
+.circle_switch.light ~ .dark_icon {
+    text-shadow: 0 0 10px #bbbbbb, 0 0 20px #bbbbbb, 0 0 15px #bbbbbb, 0 0 20px #bbbbbb, 0 0 30px #bbbbbb, 0 0 40px #bbbbbb, 0 0 50px #bbbbbb !important;
+}
+
+.material-symbols-outlined {
+    font-variation-settings:
+    'FILL' 0,
+    'wght' 100,
+    'GRAD' 0,
+    'opsz' 24
+}
