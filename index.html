@@ -8,21 +8,38 @@
         <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
     </head>
     <body>
-        <div class="switch-light" id="switchButton">
-            <div class="circle_switch dark" id="circleButton"></div>
-            <div class="switch_icon dark_icon">
-                <span class="material-symbols-outlined">
-                    dark_mode
-                </span>
-            </div>
-            <div class="switch_icon light_icon">
-                <span class="material-symbols-outlined">
-                    light_mode
-                </span>
-            </div>
+        <canvas id="backgroundCanvas"></canvas>
+        <div class="navbar">
+            <ul class="navbar-menu">
+                <li class="navbar-item">
+                    <a href="#" class="navbar-link active">Accueil</a>
+                </li>
+                <li class="navbar-item">
+                    <a href="#" class="navbar-link">A propos</a>
+                </li>
+                <li class="navbar-item">
+                    <a href="#" class="navbar-link">Projets</a>
+                </li>
+                <li class="navbar-item">
+                    <a href="#" class="navbar-link">Contact</a>
+                </li>
+            </ul>
         </div>
+        <div class="center-content">
+            <h1 class="invert-parallax" style="color: var(--light-background-color); font-size: 88px; font-weight: bold;">
+                Jeremy Calosso-Merlino
+            </h1>
+            <h1 class="invert-parallax" style="color: var(--light-background-color); font-weight: lighter;">
+                Ingénieur logiciel & développeur web
+            </h1>
+        </div>
+        <div class="cta" style="display: flex; justify-content: center; align-items: center;">
+            <a href="#" class="cta-link">
+                <span class="material-symbols-outlined">arrow_downward</span>
+                <span>En savoir plus sur moi</span>
+            </a>
+        </div>
+        <img class="parallax" id="profileImg" src="./jeremy.calosso-merlino@epitech.eu.png" alt="Moi">
     </body>
-
     <script src="./index.js"></script>
-
 </html>
