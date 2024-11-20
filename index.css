@@ -54,6 +54,7 @@ body {
     align-items: center;
     height: 10vh;
     width: 100vw;
+    background-color: var(--dark-background-color);
 }
 
 .navbar ul {
