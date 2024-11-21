@@ -7,7 +7,14 @@
 
 :root {
     --light-background-color: #f5f5f5;
-    --dark-background-color: #4622b1;
+    --dark-background-color: #331a7e;
+}
+
+html {
+    /* remove scrollbar */
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    scroll-behavior: smooth;
 }
 
 body {
@@ -15,7 +22,12 @@ body {
     height: 100vh;
     background-color: var(--dark-background-color);
     transition: background-color .5s ease;
-    overflow: hidden;
+    overflow: scroll;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+#homePage {
+    height: 100vh;
 }
 
 .switch_icon {
@@ -26,65 +38,12 @@ body {
     align-items: center;
 }
 
-.circle_switch.light {
-    left: 60%;
-}
-
-.circle_switch.light ~ .light_icon  {
-    text-shadow: none;
-}
-
-.circle_switch.light ~ .dark_icon {
-    text-shadow: 0 0 10px #bbbbbb, 0 0 20px #bbbbbb, 0 0 15px #bbbbbb, 0 0 20px #bbbbbb, 0 0 30px #bbbbbb, 0 0 40px #bbbbbb, 0 0 50px #bbbbbb !important;
-}
-
 .material-symbols-outlined {
     font-variation-settings:
     'FILL' 0,
     'wght' 100,
     'GRAD' 0,
     'opsz' 24
-}
-
-.navbar {
-    /* center */
-    position: fixed;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 10vh;
-    width: 100vw;
-    background-color: var(--dark-background-color);
-}
-
-.navbar ul {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    list-style: none;
-    width: 40%;
-    height: 100%;
-    font-size: 16px;
-}
-
-.navbar-container {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-}
-
-.navbar ul li a {
-    text-decoration: none;
-    color: #fff;
-}
-
-.navbar-link.active {
-    border-bottom: 2px solid #fff;
-}
-
-.navbar-link:hover {
-    font-weight: bold;
 }
 
 .center-content {
@@ -117,8 +76,10 @@ body {
     position: absolute;
     right: 0;
     bottom: -1rem;
-    width: 600px;
+    width: 500px;
     height: auto;
+    animation: arrivingFromBottom 1s ease;
+    transition: translateX 1s ease;
 }
 
 #backgroundCanvas {
@@ -130,3 +91,76 @@ body {
     background-color: transparent;
     z-index: -1;
 }
+
+#nameText {
+    font-size: 75px;
+    font-weight: bold;
+    color: var(--light-background-color);
+    animation: arrivingFromRight 1s ease;
+}
+
+#diplomaTitle {
+    font-weight: lighter;
+    color: var(--light-background-color);
+    animation: arrivingFromRight 1.2s ease;
+}
+
+
+/* About section */
+
+#about {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: #000;
+}
+
+#about > * {
+    color: var(--light-background-color);
+    line-height: 1.5;
+    width: 80%;
+    text-align: center;
+}
+
+
+/* animations */
+
+@keyframes arrivingFromBottom {
+    from {
+        transform: translateY(100%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+@keyframes arrivingFromTop {
+    from {
+        transform: translateY(-100%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+@keyframes arrivingFromLeft {
+    from {
+        transform: translateX(-100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes arrivingFromRight {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+

@@ -1,20 +1,35 @@
 $(document).ready(function() {
-    $('#switchButton').click(function(){
-        $(this).find("#circleButton").toggleClass('light');
-        $("body").toggleClass("light-mode")
+
+    let hasScrolled = false;
+
+    // wait 2 seconds before showing the profile image
+    setTimeout(function() {
+        $(document).mousemove(function(e) {
+            if (hasScrolled) return;
+            let moveX = (e.pageX - $(window).width() / 2) / 50;
+            let moveY = (e.pageY - $(window).height() / 2) / 50;
+            $('.parallax').css('transform', 'translate(' + moveX + 'px, ' + moveY + 'px)');
+            $('.invert-parallax').css('transform', 'translate(' + -moveX + 'px, ' + -moveY + 'px)');
+        });
+    }, 1200);
+
+
+
+    // if scroll position is not at the top, reset the parallax effect
+    $(window).scroll(function() {
+        if ($(window).scrollTop() > 0) {
+            hasScrolled = true;
+            $('.parallax').css('transform', 'translate(0px, 0px)');
+            $('.invert-parallax').css('transform', 'translate(0px, 0px)');
+            $("#profileImg").css('bottom', '0');
+        } else {
+            $("#profileImg").css('bottom', '-1rem');
+            hasScrolled = false;
+        }
     });
 
-    $('.navbar-link').click(function() {
-        $('.navbar-link').removeClass('active');
-        $(this).addClass('active');
-    });
 
-    $(document).mousemove(function(e) {
-        let moveX = (e.pageX - $(window).width() / 2) / 50;
-        let moveY = (e.pageY - $(window).height() / 2) / 50;
-        $('.parallax').css('transform', 'translate(' + moveX + 'px, ' + moveY + 'px)');
-        $('.invert-parallax').css('transform', 'translate(' + -moveX + 'px, ' + -moveY + 'px)');
-    });
+    // Lines animation
 
     var ctx = $('#backgroundCanvas').get(0).getContext('2d');
     var canvas = $('#backgroundCanvas').get(0);
@@ -24,7 +39,6 @@ $(document).ready(function() {
     canvas.width = canvasWidth;
     canvas.height = canvasHeight;
 
-    // create curved lines that moves randomly
     var lines = [];
     var lineWidth = 2;
     var lineColor = 'rgba(255, 255, 255, 1)';
